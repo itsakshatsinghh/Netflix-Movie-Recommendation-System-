@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 st.set_page_config(page_title="CineMatch", page_icon="", layout="wide")
 
-movies = pickle.load(open(r'Model\movies.pkl', 'rb'))
+movies = pickle.load(open('Model/movies.pkl', 'rb'))
 
 cv = CountVectorizer(max_features=5000, stop_words='english')
 vectors = cv.fit_transform(movies['tags']).toarray()
@@ -42,3 +42,4 @@ if submit:
         with cols[i]:
 
             st.markdown(f"<div style='text-align: center; padding: 20px 10px; background-color: #1e1e1e; border-radius: 10px; border: 1px solid #333;'><b>{movie}</b></div>", unsafe_allow_html=True)
+
